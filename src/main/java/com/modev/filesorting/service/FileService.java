@@ -92,15 +92,18 @@ public class FileService {
     }
 
     private void createDirectorysAndMoveFile(String directoryToCreate, Path currentPath, File currentFile) throws IOException {
-        File newFile = new File(directoryToCreate);
-        if (!newFile.exists()) {
+        File directory = new File(directoryToCreate);
+        File fileToMove = new File(directoryToCreate + "/" + currentFile.getName());
+        if (!directory.exists()) {
             // Create Directory
-            newFile.mkdirs();
-            System.out.println("Directory " + newFile.getAbsolutePath() + " created");
+            directory.mkdirs();
+            System.out.println("Directory " + directory.getAbsolutePath() + " created");
         }
 
-        Files.move(currentPath, Paths.get(newFile.getAbsolutePath() + "/" + currentFile.getName()));
-        System.out.println("File has successfully been sorted and moved.");
+        if (!fileToMove.exists()) {
+            Files.move(currentPath, Paths.get(directory.getAbsolutePath() + "/" + currentFile.getName()));
+            System.out.println("File has successfully been sorted and moved.");
+        }
     }
 
 }
