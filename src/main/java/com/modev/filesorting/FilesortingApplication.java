@@ -1,5 +1,6 @@
 package com.modev.filesorting;
 
+import com.modev.filesorting.facade.InputFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
@@ -8,14 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Map;
 
-import static com.modev.helper.ArgumentHelper.processArguments;
+import static com.modev.filesorting.helper.ArgumentHelper.processArguments;
 import static java.lang.System.exit;
 
 @SpringBootApplication
 public class FilesortingApplication implements CommandLineRunner {
 
 	@Autowired
-	private com.modev.facade.InputFacade inputFacade;
+	private InputFacade inputFacade;
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication app = new SpringApplication(FilesortingApplication.class);

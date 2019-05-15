@@ -33,19 +33,16 @@ public class InputFacade {
         // Go to Facade
         switch (directoryInterval) {
             case daily:
-                fileService.processDaily(arguments, daily);
+                fileService.processDirectory(arguments, daily);
                 break;
             case montly:
-                fileService.processMontly(arguments, montly);
+                fileService.processDirectory(arguments, montly);
                 break;
             case yearly:
-                fileService.processYearly(arguments, yearly);
+                fileService.processDirectory(arguments, yearly);
                 break;
             default:
-                fileService.processMontly(arguments, montly);
+                fileService.processDirectory(arguments, yearly);
         }
-
-        //Path path = Paths.get(arguments.get("inputPath"));
-        //Files.walk(path).filter(Files::isRegularFile).forEach(path1 -> );
     }
 }
